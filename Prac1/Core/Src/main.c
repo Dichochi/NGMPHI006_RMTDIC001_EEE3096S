@@ -44,6 +44,12 @@ TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
 // TODO: Define input variables
+GPIO_PinState PA0_State ;
+GPIO_PinState PA1_State;
+GPIO_PinState PA2_State;
+GPIO_PinState PA3_State;
+
+int PATTERN = 1;
 
 
 /* USER CODE END PV */
