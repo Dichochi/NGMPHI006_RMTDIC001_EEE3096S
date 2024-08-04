@@ -97,7 +97,11 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // TODO: Start timer TIM16
-
+    if (HAL_TIM_Base_Start_IT(&htim16) != HAL_OK)
+    {
+      // Initialization Error
+      Error_Handler();
+    }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,7 +114,22 @@ int main(void)
 
     // TODO: Check pushbuttons to change timer delay
     
-    
+    PA0_State = HAL_GPIO_ReadPin(GPIOA, Button0_Pin);
+	  PA1_State = HAL_GPIO_ReadPin(GPIOA, Button1_Pin);
+	  PA2_State = HAL_GPIO_ReadPin(GPIOA, Button2_Pin);
+	  PA3_State = HAL_GPIO_ReadPin(GPIOA, Button3_Pin);
+	  if (PA0_State == GPIO_PIN_RESET ) {
+		  __HAL_TIM_SET_AUTORELOAD(&htim16, 499);
+	  	}
+	  else if (PA1_State == GPIO_PIN_RESET ) {
+		  __HAL_TIM_SET_AUTORELOAD(&htim16, 1999);
+		}
+	  else if(PA2_State == GPIO_PIN_RESET ) {
+		  __HAL_TIM_SET_AUTORELOAD(&htim16, 999);
+		}
+	  else if(PA3_State == GPIO_PIN_RESET ) {
+			 PATTERN = 1;
+	  	}
 
   }
   /* USER CODE END 3 */
