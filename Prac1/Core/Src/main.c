@@ -97,6 +97,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // TODO: Start timer TIM16
+  // Start TIM16 in interrupt mode
     if (HAL_TIM_Base_Start_IT(&htim16) != HAL_OK)
     {
       // Initialization Error
@@ -113,8 +114,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     // TODO: Check pushbuttons to change timer delay
-    
-    PA0_State = HAL_GPIO_ReadPin(GPIOA, Button0_Pin);
+
+	  PA0_State = HAL_GPIO_ReadPin(GPIOA, Button0_Pin);
 	  PA1_State = HAL_GPIO_ReadPin(GPIOA, Button1_Pin);
 	  PA2_State = HAL_GPIO_ReadPin(GPIOA, Button2_Pin);
 	  PA3_State = HAL_GPIO_ReadPin(GPIOA, Button3_Pin);
@@ -130,6 +131,7 @@ int main(void)
 	  else if(PA3_State == GPIO_PIN_RESET ) {
 			 PATTERN = 1;
 	  	}
+
 
   }
   /* USER CODE END 3 */
@@ -350,6 +352,60 @@ void TIM16_IRQHandler(void)
 	HAL_TIM_IRQHandler(&htim16);
 
 	// TODO: Change LED pattern
+	switch (PATTERN) {
+	    case 1:
+	    	HAL_GPIO_WritePin(GPIOB, LED1_Pin | LED2_Pin |LED4_Pin ,GPIO_PIN_RESET);
+
+	    	HAL_GPIO_WritePin(GPIOB, LED7_Pin | LED6_Pin | LED5_Pin | LED3_Pin | LED0_Pin,GPIO_PIN_SET);
+	    	PATTERN +=1;
+	        break;
+	    case 2:
+	    	HAL_GPIO_WritePin(GPIOB, LED0_Pin | LED2_Pin |LED3_Pin | LED5_Pin ,GPIO_PIN_RESET);
+	    	HAL_GPIO_WritePin(GPIOB, LED7_Pin | LED6_Pin | LED4_Pin | LED1_Pin ,GPIO_PIN_SET);
+	    	PATTERN +=1;
+			break;
+	    case 3:
+	    	HAL_GPIO_WritePin(GPIOB, LED0_Pin | LED1_Pin | LED3_Pin |LED4_Pin | LED6_Pin ,GPIO_PIN_RESET);
+	    	HAL_GPIO_WritePin(GPIOB, LED7_Pin | LED5_Pin | LED2_Pin ,GPIO_PIN_SET);
+	    	PATTERN +=1;
+			break;
+		case 4:
+			HAL_GPIO_WritePin(GPIOB, LED0_Pin | LED1_Pin | LED2_Pin |LED4_Pin
+										    |LED5_Pin | LED7_Pin ,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOB, LED6_Pin | LED3_Pin ,GPIO_PIN_SET);
+			PATTERN +=1;
+			break;
+		case 5:
+			HAL_GPIO_WritePin(GPIOB, LED0_Pin | LED1_Pin | LED2_Pin |LED3_Pin
+											|LED5_Pin | LED6_Pin ,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOB, LED7_Pin | LED4_Pin ,GPIO_PIN_SET);
+			PATTERN +=1;
+			break;
+		case 6:
+			HAL_GPIO_WritePin(GPIOB, LED0_Pin | LED1_Pin | LED2_Pin |LED3_Pin
+											| LED4_Pin |LED6_Pin | LED7_Pin ,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOB, LED5_Pin,GPIO_PIN_SET);
+			PATTERN +=1;
+			break;
+		case 7:
+			HAL_GPIO_WritePin(GPIOB, LED0_Pin | LED1_Pin | LED2_Pin |LED3_Pin
+											| LED4_Pin |LED5_Pin | LED7_Pin ,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOB, LED6_Pin,GPIO_PIN_SET);
+			PATTERN +=1;
+			break;
+		case 8:
+			HAL_GPIO_WritePin(GPIOB, LED0_Pin | LED1_Pin | LED2_Pin |LED3_Pin
+								| LED4_Pin |LED5_Pin | LED6_Pin ,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOB, LED7_Pin,GPIO_PIN_SET);
+			PATTERN +=1;
+
+			break;
+	    case 9:
+			HAL_GPIO_WritePin(GPIOB, LED0_Pin | LED1_Pin | LED2_Pin |LED3_Pin
+					| LED4_Pin |LED5_Pin | LED6_Pin | LED7_Pin,GPIO_PIN_RESET);
+			PATTERN = 1;
+			break;
+	}
 	// print something
 
   
