@@ -1809,30 +1809,30 @@ LOAD C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x000097c6      0x82c build/stm32f0xx_ll_utils.o
  .debug_line    0x00009ff2       0x77 build/startup_stm32f051x8.o
 
-.debug_str      0x00000000     0x2b17
- .debug_str     0x00000000      0xba5 build/main.o
-                                0xca3 (size before relaxing)
- .debug_str     0x00000ba5       0x6d build/stm32f0xx_it.o
+.debug_str      0x00000000     0x2b72
+ .debug_str     0x00000000      0xb97 build/main.o
+                                0xc95 (size before relaxing)
+ .debug_str     0x00000b97       0xd6 build/stm32f0xx_it.o
                                 0x211 (size before relaxing)
- .debug_str     0x00000c12       0x86 build/system_stm32f0xx.o
+ .debug_str     0x00000c6d       0x86 build/system_stm32f0xx.o
                                 0x282 (size before relaxing)
- .debug_str     0x00000c98      0x119 build/stm32f0xx_ll_gpio.o
+ .debug_str     0x00000cf3      0x119 build/stm32f0xx_ll_gpio.o
                                 0x3b2 (size before relaxing)
- .debug_str     0x00000db1      0x29d build/stm32f0xx_hal.o
+ .debug_str     0x00000e0c      0x29d build/stm32f0xx_hal.o
                                 0x6f6 (size before relaxing)
- .debug_str     0x0000104e      0x228 build/stm32f0xx_hal_cortex.o
+ .debug_str     0x000010a9      0x228 build/stm32f0xx_hal_cortex.o
                                 0x637 (size before relaxing)
- .debug_str     0x00001276      0x10c build/stm32f0xx_hal_gpio.o
+ .debug_str     0x000012d1      0x10c build/stm32f0xx_hal_gpio.o
                                 0x411 (size before relaxing)
- .debug_str     0x00001382      0xf39 build/stm32f0xx_hal_tim.o
+ .debug_str     0x000013dd      0xf39 build/stm32f0xx_hal_tim.o
                                0x1686 (size before relaxing)
- .debug_str     0x000022bb      0x55b build/stm32f0xx_hal_tim_ex.o
+ .debug_str     0x00002316      0x55b build/stm32f0xx_hal_tim_ex.o
                                 0xea2 (size before relaxing)
- .debug_str     0x00002816       0x27 build/stm32f0xx_hal_msp.o
+ .debug_str     0x00002871       0x27 build/stm32f0xx_hal_msp.o
                                 0x725 (size before relaxing)
- .debug_str     0x0000283d      0x2a8 build/stm32f0xx_ll_utils.o
+ .debug_str     0x00002898      0x2a8 build/stm32f0xx_ll_utils.o
                                 0x618 (size before relaxing)
- .debug_str     0x00002ae5       0x32 build/startup_stm32f051x8.o
+ .debug_str     0x00002b40       0x32 build/startup_stm32f051x8.o
                                  0x9b (size before relaxing)
 
 .comment        0x00000000       0x43
